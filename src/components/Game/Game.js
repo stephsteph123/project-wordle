@@ -1,5 +1,6 @@
-import React from 'react';
-
+import React, {useState} from 'react';
+import GuessInput from '../GuessInput/GuessInput';
+import GuessResults from '../GuessInput/GuessResults';
 import { sample } from '../../utils';
 import { WORDS } from '../../data';
 
@@ -9,7 +10,17 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  return <>Put a game here!</>;
+  const [guess, setGuess]=useState([]);
+
+  function onSubmitGame(tentGuess){
+    setGuess([...guess, tentGuess]);
+  }
+
+
+  return <>
+  <GuessResults guess={guess}/>
+  <GuessInput onSubmitGame={onSubmitGame}/>
+  </>;
 }
 
 export default Game;
