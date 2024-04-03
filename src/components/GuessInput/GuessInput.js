@@ -15,7 +15,7 @@ import GuessResults from "./GuessResults";
 // event.preventDefault();
 // window.alert();
 
-function GuessInput({ onSubmitGame }) {
+function GuessInput({ onSubmitGame, gameStatus }) {
   const [tentGuess, setTentGuess] = useState("");
 
   function onSubmit(event) {
@@ -31,6 +31,7 @@ function GuessInput({ onSubmitGame }) {
         <input
           id="guess-input"
           type="text"
+          disabled={gameStatus !== "running"}
           required
           minLength={5}
           maxLength={5}

@@ -13,7 +13,7 @@ export default function GuessResults({ guess, answer }) {
   return (
     <div className="guess-results">
       {range(NUM_OF_GUESSES_ALLOWED).map((num) => (
-        <Guess key={num} value={guess[num]} answer={answer}/>
+        <Guess key={num} value={guess[num]} answer={answer} />
       ))}
     </div>
   );
